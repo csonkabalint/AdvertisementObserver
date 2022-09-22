@@ -1,0 +1,7 @@
+C:\Users\Csonka Bálint\Downloads\figyelo\figyelo\figyelo\bin\Debug\AdvertisementObserver.exe.config
+C:\Users\Csonka Bálint\Downloads\figyelo\figyelo\figyelo\bin\Debug\AdvertisementObserver.exe
+C:\Users\Csonka Bálint\Downloads\figyelo\figyelo\figyelo\bin\Debug\AdvertisementObserver.pdb
+C:\Users\Csonka Bálint\Downloads\figyelo\figyelo\figyelo\obj\Debug\AdvertisementObserver.csprojAssemblyReference.cache
+C:\Users\Csonka Bálint\Downloads\figyelo\figyelo\figyelo\obj\Debug\AdvertisementObserver.csproj.CoreCompileInputs.cache
+C:\Users\Csonka Bálint\Downloads\figyelo\figyelo\figyelo\obj\Debug\AdvertisementObserver.exe
+C:\Users\Csonka Bálint\Downloads\figyelo\figyelo\figyelo\obj\Debug\AdvertisementObserver.pdb

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1259
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvertisementObserver", "figyelo\AdvertisementObserver.csproj", "{317315BA-5D4B-4001-8D9F-BAA4AD301814}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{317315BA-5D4B-4001-8D9F-BAA4AD301814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317315BA-5D4B-4001-8D9F-BAA4AD301814}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317315BA-5D4B-4001-8D9F-BAA4AD301814}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317315BA-5D4B-4001-8D9F-BAA4AD301814}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA5B6B8D-BE7C-4142-9849-7F26D6FF9CA9}
+	EndGlobalSection
+EndGlobal

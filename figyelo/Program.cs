@@ -23,7 +23,15 @@ namespace AdvertisementObserver
             advertisementParser.addPageAttribute(hardveraproPageAttributes);
             advertisementParser.addPagerAttributeGetter(hardveraproAdAttributeGetter);
             //jelszora kell valami megoldas
-            INotificationSender notificationSender = new EmailNotifier("hardverfigyelo@gmail.com", "vmrgvzqwbybhtezg", "hardverfigyelo@gmail.com", "smtp.gmail.com");
+            StreamReader UserData = new StreamReader("..\\..\\..\\user_data.txt");
+            string emailAddress = UserData.ReadLine();
+            string password = UserData.ReadLine();
+            string emailAddressTo = UserData.ReadLine();
+            string emailClientAddress = UserData.ReadLine();
+            UserData.Close();
+            INotificationSender notificationSender = new EmailNotifier(
+                emailAddress, password, emailAddressTo, emailClientAddress
+                /*"hardverfigyelo@gmail.com", "vmrgvzqwbybhtezg", "hardverfigyelo@gmail.com", "smtp.gmail.com"*/);
             AdObserver observer = new AdObserver(adPageDownloader, advertisementParser, notificationSender);
 
             ISearchObjective FaultyGraphicCardSearch = new AdSearchObjective(0, "hardverapro", @"https://hardverapro.hu/aprok/hardver/videokartya/index.html", "faulty graphic cards",
@@ -391,7 +399,7 @@ public class SendMail
         mail.Body = res;
 
         SmtpServer.Port = 587;
-        SmtpServer.Credentials = new System.Net.NetworkCredential("hardverfigyelo@gmail.com", "123Jelszo");
+        SmtpServer.Credentials = new System.Net.NetworkCredential();
         SmtpServer.EnableSsl = true;
 
         SmtpServer.Send(mail);

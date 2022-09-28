@@ -66,7 +66,7 @@ namespace AdvertisementObserver
                 if (priceRaw != "")
                 {
                     int price = int.Parse(Regex.Replace(priceRaw, @"\s+", ""));
-                    if (!adPageAttribute.ForbiddenExpressions().Any(p => d[i].Contains(p)) && priceRaw != "" && id > searchObjective.GetLastCheckedID() && (searchObjective.GetSearchFunction()(title, price) || searchObjective.GetSearchFunction()(url, price)))
+                    if (!adPageAttribute.ForbiddenExpressions().Any(p => d[i].Contains(p)) && id > searchObjective.GetLastCheckedID() && (searchObjective.GetSearchFunction()(title, price) || searchObjective.GetSearchFunction()(url, price)))
                     {
                         Results.Add(id, $"ár: {priceRaw.PadLeft(8)} cím: {title.Substring(0, Math.Min(title.Length, 30))} url: {url}");
                     } 

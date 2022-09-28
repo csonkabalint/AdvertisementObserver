@@ -10,7 +10,7 @@ namespace AdvertisementObserver
     {
         string GetDomainName();
         int GetId(string adContent);
-        string GetPrice(string adContent);
+        int? GetPrice(string adContent);
         string GetTitle(string adContent);
         string GetUrl(string adContent);
     }

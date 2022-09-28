@@ -59,16 +59,15 @@ namespace AdvertisementObserver
             for (int i = 1; i < d.Length - 1; i++)
             {
                 int id = adAttributeGetter.GetId(d[i]);
-                string priceRaw = adAttributeGetter.GetPrice(d[i]);
+                int? price = adAttributeGetter.GetPrice(d[i]);
                 string title = adAttributeGetter.GetTitle(d[i]);
                 string url = adAttributeGetter.GetUrl(d[i]);
 
-                if (priceRaw != "")
+                if (price.HasValue)
                 {
-                    int price = int.Parse(Regex.Replace(priceRaw, @"\s+", ""));
-                    if (!adPageAttribute.ForbiddenExpressions().Any(p => d[i].Contains(p)) && id > searchObjective.GetLastCheckedID() && (searchObjective.GetSearchFunction()(title, price) || searchObjective.GetSearchFunction()(url, price)))
+                    if (!adPageAttribute.ForbiddenExpressions().Any(p => d[i].Contains(p)) && id > searchObjective.GetLastCheckedID() && (searchObjective.GetSearchFunction()(title, price.Value) || searchObjective.GetSearchFunction()(url, price.Value)))
                     {
-                        Results.Add(id, $"ár: {priceRaw.PadLeft(8)} cím: {title.Substring(0, Math.Min(title.Length, 30))} url: {url}");
+                        Results.Add(id, $"ár: {price.ToString().PadLeft(8)} cím: {title.Substring(0, Math.Min(title.Length, 30))} url: {url}");
                     } 
                 }
             }

@@ -21,9 +21,17 @@ namespace AdvertisementObserver
             return int.Parse(idReg.Match(adContent).Value);
         }
 
-        public string GetPrice(string adContent)
+        public int? GetPrice(string adContent)
         {
-            return arReg.Match(adContent).Value;
+            string priceRaw = arReg.Match(adContent).Value;
+            if(priceRaw == "")
+            {
+                return null;
+            }
+            else
+            {
+                return int.Parse(Regex.Replace(priceRaw, @"\s+", ""));
+            }
         }
 
         public string GetTitle(string adContent)

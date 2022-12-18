@@ -10,7 +10,7 @@ namespace AdvertisementObserver
 {
     class WebPageDownloader : IAdPageDownloader
     {
-        //cookies are still wepage specific (hardverapro.hu)!!! 
+        //cookies are still webpage specific (hardverapro.hu)!!! 
 
         public WebPageDownloader()
         {
@@ -32,7 +32,16 @@ namespace AdvertisementObserver
                 request.CookieContainer.Add(c);
             }*/
             request.CookieContainer.Add(new Cookie("prf_ls_uad", "time.d.50.normal") { Domain = target.Host });
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            HttpWebResponse response;
+            try
+            {
+                response = (HttpWebResponse)request.GetResponse();
+            }
+            catch (Exception webEx)
+            {
+                throw new Exception(webEx.Message);
+            }
+            
             Stream receiveStream = response.GetResponseStream();
             StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
             string rawHtmlString = readStream.ReadToEnd();

@@ -26,6 +26,28 @@ namespace AdvertisementObserver
             || (str.Contains("980") && str.Contains("ti") && ar < 55000)
             || (!str.Contains("hibátlan") && ((str.Contains("hibas") || (str.Contains("csík")) || (str.Contains("hibá")))) && ar < 36002);
 
+        static Func<string, int, bool> graphicCardNotWorking = (str, ar) =>
+               (str.Contains("vega") && ar < 15001)
+            || (str.Contains("1070") || str.Contains("1080") && ar < 15001)
+            || (str.Contains("fury") || str.Contains("nano") && ar < 12001)
+            || (str.Contains("rtx") && ar < 15001)
+            || (str.Contains("5700") || str.Contains("5600") || str.Contains("5500") || str.Contains("6700") 
+        || str.Contains("6600") || str.Contains("6500") && str.Contains("rx") && ar < 15001)
+            || (str.Contains("590") || str.Contains("580") || str.Contains("570") && str.Contains("rx") && ar < 12001)
+            || (str.Contains("480") || str.Contains("470") && str.Contains("rx") && ar < 10001)
+            || (str.Contains("1060") || str.Contains("980") || str.Contains("1660") || str.Contains("1650") && ar < 12001)
+            //|| (str.Contains("970") || str.Contains("780") || str.Contains("680") || str.Contains("770") && ar < 10001)
+            || (new[] { "970", "780", "680", "770" }.Any(s => str.Contains(s)) && ar < 10001)
+            || (str.Contains("r9") && new[] { "290", "390" }.Any(s => str.Contains(s)) && ar < 10001)
+            || (str.Contains("hd") && new[] { "6970", "7970", "7950" }.Any(s => str.Contains(s)) && ar < 8001)
+            || (new[] { "580", "670", "960", "760" }.Any(s => str.Contains(s)) && ar < 5001)
+            //|| (str.Contains("lightning") || str.Contains("toxic") || str.Contains("soc") || str.Contains("matrix") && ar < 10001)
+            || (new[]{ "lightning", "toxic", "soc", "matrix", "hof", "hall of fame", "classified", "vapor", "red devil", "xtreme", "overclocked" }.Any(s => str.Contains(s)) && ar < 10001)
+            //|| (!str.Contains("hibátlan") && ((str.Contains("hibas") || (str.Contains("csík")) || (str.Contains("hibá"))
+            || (!str.Contains("hibátlan") 
+        && new[] { "hibas", "hibá", "csík", "csik", "nem ad", "43", "artif", "rossz", "nem megy", "nem müködik", "nincs kép", "nem ismer", "javít", "alkatr", "dísz" }.Any(s => str.Contains(s)) 
+        && ar < 21001);
+
         static Func<string, int, bool> intel_1151 = (str, ar) =>
                (str.Contains("g49") && ar < 10001)
             || (str.Contains("g5") && ar < 12001)

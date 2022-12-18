@@ -65,7 +65,7 @@ namespace AdvertisementObserver
 
                 if (price.HasValue)
                 {
-                    if (!adPageAttribute.ForbiddenExpressions().Any(p => d[i].Contains(p)) && id > searchObjective.GetLastCheckedID() && (searchObjective.GetSearchFunction()(title, price.Value) || searchObjective.GetSearchFunction()(url, price.Value)))
+                    if (!adPageAttribute.ForbiddenExpressions().Any(p => d[i].Contains(p)) && id > searchObjective.GetLastCheckedID() && (searchObjective.GetSearchFunction()(title.ToLower(), price.Value) || searchObjective.GetSearchFunction()(url.ToLower(), price.Value)))
                     {
                         Results.Add(id, $"ár: {price.ToString().PadLeft(8)} cím: {title.Substring(0, Math.Min(title.Length, 30))} url: {url}");
                     } 
